@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Eerste opdracht</title>
+    <style>
+        h1 {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: rgb(231, 88, 88);
+            background-color: rgb(95, 95, 95);
+            width: 50%;
+        }
+
+        .par {
+            font-size: 12;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            background-color: peachpuff;
+        }
+
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+            margin: 10px;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        #elephant {
+            font-style: italic;
+            color: dodgerblue;
+        }
+
+        #dog-col {
+            color: brown;
+            font-weight: bold;
+        }
+
+        .animals {
+            font-size: 12;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+
+        .animals>img {
+            border: 2px green dashed;
+            width: 112px;
+            height: 112px;
+            padding: 8px;
+            margin: 10px;
+            background-color: greenyellow;
+        }
+
+        .poke>img {
+            border: 2px red solid;
+            padding: 5px;
+        }
+
+        p {
+            font-size: 16;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+
+        .calculator {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1>TEST TEKST 1 2 3...</h1>
+    <h2><b>test <u>tekst</u> </b> 1 <i>2 3</i>...</h2>
+    <p class="par" onclick="functie1();">Paragraaf test</p>
+    <table>
+        <tr>
+            <th>Dier</th>
+            <th>Grootte</th>
+            <th>Kleur</th>
+            <th>Fictief</th>
+        </tr>
+        <tr>
+            <td class="dier">Hond</td>
+            <td id="dog-size">Middelmatig</td>
+            <td id="dog-col">Bruin</td>
+            <td>Nee</td>
+        </tr>
+        <tr id="elephant">
+            <td class="dier">Olifant</td>
+            <td>Grootst</td>
+            <td>Grijs</td>
+            <td>Nee</td>
+        </tr>
+        <tr>
+            <td class="dier">Eenhoorn</td>
+            <td>Groot</td>
+            <td>Regenboog</td>
+            <td>Ja</td>
+        </tr>
+
+    </table>
+    <div>
+        <div class="animals">
+            <p onclick="functie4();" id="question">Animals?</p>
+            <img src="https://c.tenor.com/elhnQfoqWfAAAAAC/raccon-bigracc.gif" title="rollin'"
+                alt="a round raccoon rolling" />
+            <img src="https://emojis.slackmojis.com/emojis/images/1618634103/30935/egg-dog.gif" title="eggdog"
+                alt="bouncy eggdog" />
+        </div>
+        <div class="poke">
+            <img src="https://c.tenor.com/D7opT2gl1MQAAAAM/monster-ball-pokemon.gif" title="wiggle wiggle"
+                alt="pokeball wiggling" />
+        </div>
+    </div>
+
+    <a href="https://www.w3schools.com/html/default.asp" title="wanna visit?">
+        <h3>w3schools link</h3>
+    </a>
+
+    <button id="date-button" class="button" onclick="showDate();"> What Day is it?</button>
+    <p id="date-text"> </p>
+
+
+
+    <div class="calculator">
+        <div>
+            Number: <input id="int-one" type="text" />
+        </div>
+        <div>
+            Number: <input id="int-two" type="text" />
+        </div>
+
+        <div>
+            <button id="sum" onclick="calcSum()">
+                Sum
+            </button>
+            <button id="sub" onclick="calcSub()">
+                Sub
+            </button>
+            <button id="multiply" onclick="calcMultiply()">
+                Multiply
+            </button>
+            <button id="divide" onclick="calcDiv()">
+                Divide
+            </button>
+            <div>
+                <p id="solution"> </p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        function functie1() {
+            console.log("functie 1 start")
+            var dogColor = document.getElementById("dog-size");
+            dogColor.style.backgroundColor = "pink";
+            functie2();
+        }
+        // alert('Dit is mijn popup');
+
+        function functie2() {
+            console.log("functie2 start")
+            var dogColor = document.getElementById("dog-col");
+            dogColor.style.backgroundColor = "orange";
+            dogColor.style.fontStyle = "Italic";
+        }
+
+        function functie3() {
+            console.log("functie 3 start")
+            var images = document.getElementsByClassName("dier");
+            for (var i = 0; i < images.length; i++) {
+                images[i].style.textAlign = "Center";
+            }
+        }
+
+        function functie4() {
+            console.log("functie 4 start");
+            var text = document.getElementById("question");
+            text.style.padding = "10px";
+            text.innerHTML = "Raccoon & Eggdog!"
+        }
+
+        function showDate() {
+            console.log("Showing date...")
+            var text = document.getElementById("date-text");
+            text.innerHTML = new Date();
+        }
+
+        // console.log("Voor functie1");
+        // // functie1();
+        // console.log("Na functie1");
+
+        console.log("Voor functie3");
+        functie3();
+        console.log("Na functie3");
+
+        function calcSum() {
+            var intOne = parseInt(document.getElementById("int-one").value);
+            var intTwo = parseInt(document.getElementById("int-two").value);
+            var total = intOne + intTwo
+
+            var solution = document.getElementById("solution");
+            solution.innerHTML = "The answer is " + total + "!";
+        }
+
+        function calcSub() {
+            var intOne = parseInt(document.getElementById("int-one").value);
+            var intTwo = parseInt(document.getElementById("int-two").value);
+            var total = intOne - intTwo
+
+            var solution = document.getElementById("solution");
+            solution.innerHTML = "The answer is " + total + "!";
+        }
+
+        function calcMultiply() {
+            var intOne = parseInt(document.getElementById("int-one").value);
+            var intTwo = parseInt(document.getElementById("int-two").value);
+            var total = intOne * intTwo
+
+            var solution = document.getElementById("solution");
+            solution.innerHTML = "The answer is " + total + "!";
+        }
+
+        function calcDiv() {
+            var intOne = parseInt(document.getElementById("int-one").value);
+            var intTwo = parseInt(document.getElementById("int-two").value);
+            var total = intOne / intTwo
+
+            var solution = document.getElementById("solution");
+            solution.innerHTML = "The answer is " + total + "!";
+        }
+
+    </script>
+</body>
+
+</html>
